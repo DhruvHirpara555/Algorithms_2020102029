@@ -1,6 +1,6 @@
 # Huffman Algorithm
 
-Huffman Coding is a data compression technique that reduces the size of data without sacrificing any of the information.It was created by David Huffman 
+Huffman Coding is a data compression technique that reduces the size of data without sacrificing any of the information.It was created by David Huffman
 
 ## Problem
 
@@ -37,7 +37,7 @@ We realize that BA is indistinguashable from C. So, one solution to this problem
 
 Consider the following code: C = {0, 10, 111, 110}. here no codeword is prefix other code hence it is prefix free.
 
-**Property of Prefix-free codes** : We can represent the prefix free codewords as the leaves of a binary tree. 
+**Property of Prefix-free codes** : We can represent the prefix free codewords as the leaves of a binary tree.
 
 **Codeword at any given leaf** = Path taken from root to that leaf.  At root codeword is empty and  we append "0"  for going left and "1"  for going right.
 
@@ -62,7 +62,7 @@ where $l_i$ is length of ith codeword (depth of the $i$​th symbol in tree).
 3. Make each unique symbol as a leaf node.
 4. Make a z node . Assign the left child of z the minimum frequency node, and the right child of z the second minimum frequency node. Set the z value to the sum of the two minimum frequencies (Greedy Step)
 5. Remove these two minimum frequencies from Q and add the sum into the list of frequencies (Optimal substructure)
-6. Repeat steps 3 to 5 Until there is only 1 frequency left in priority queue 
+6. Repeat steps 3 to 5 Until there is only 1 frequency left in priority queue
 
 **Encoding**
 
@@ -73,7 +73,7 @@ Make Hahtable
 
 Encode using HashTable
 
-- For a given input string  
+- For a given input string
 - Initialize empty output string.
 - For each character in input string  append the codeword correessponding to character from hash table
 
@@ -106,7 +106,7 @@ Proof is obvious if this was not the case the we can construct lower average len
 
 Now we can transform this to get rid off the unused leaf and contract u-v edges
 
-![](/home/dhruv/algoscam/Algorithms_2020102029/Greedy/Huffman/Screenshot_20211201_024801.png)
+![](./Screenshot_20211201_024801.png)
 
 Length of these have been reduced by 1, within new tree.
 
@@ -121,7 +121,7 @@ symbols are siblings (share same parent).
 **Proof :**If i say code C satisfies this property, then we were done. Now, lets consider a code with codewords of
 length $l_{k−1} < l_k$.
 
-![](/home/dhruv/algoscam/Algorithms_2020102029/Greedy/Huffman/Screenshot_20211201_024828.png)
+![](./Screenshot_20211201_024828.png)
 
 Interchange the codeword for the ith and k − 1th symbols and get the new code C0
 
@@ -148,7 +148,7 @@ Assuming n to be no. of unique character and we are given their frequencies
 
 Since each time we perform these 3 operation 1 node is decreased so we will do these n times
 
-**Final time complexity = ** n(O(log n) + O(log n) + O(log n)) = O(3nlogn) = O(nlogn) 
+**Final time complexity = ** n(O(log n) + O(log n) + O(log n)) = O(3nlogn) = O(nlogn)
 
 If we consider
 
@@ -168,7 +168,7 @@ Encoding using Hashmap
 
 It will take O(string length)
 
-### Decoding 
+### Decoding
 
 Since we instaneously decodable code(prefix free). We can decode in O(Encoded String length)
 
