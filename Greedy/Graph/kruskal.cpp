@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
  class DisjointSU
  {
@@ -63,12 +64,12 @@ void swap(Edge *x, Edge *y)
     *y = temp;
 }
 
-void printMST(Edge *T, int n)
+void printMST(std::vector<Edge> T)
 {
     int i;
     long long int cost = 0;
 
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < T.size(); i++)
     {
         std::cout << T[i].u << " " << T[i].v << " " << T[i].w << std::endl;
         cost += T[i].w;
@@ -106,8 +107,8 @@ void QuickSort(Edge E[],int low, int high)
 void Kruskal(Edge *E, int n, int e)
 {
     int  u, v;
-    Edge *T;
-    T = (Edge *)malloc((n - 1) * sizeof(Edge));
+
+    std::vector<Edge> MST;
     QuickSort(E, 0, e - 1);
 
     int j = 0;
@@ -118,16 +119,15 @@ void Kruskal(Edge *E, int n, int e)
         v = dsu.king(E[i].v);
         if (u != v)
         {
-            T[j].u = E[i].u;
-            T[j].v = E[i].v;
-            T[j].w = E[i].w;
+
+            MST.push_back({E[i].u, E[i].v, E[i].w});
             j++;
             dsu.unionbysize(u, v);
         }
 
     }
 
-    printMST(T, n - 1);
+    printMST(MST);
     return;
 }
 
