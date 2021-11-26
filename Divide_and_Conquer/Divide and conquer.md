@@ -13,6 +13,16 @@
 
 ## General method to find time complexity(Master theorem)
 
+Finding the time complexity of Divide and conquer algorithms is hard to find by just looking at them. Because at each level of recursion the size of gets smaller and the number of sub-problems increases.
+
+Considering this we would have 3 cases
+
+1. Rate of increase in subproblem is less significant then rate of decrease in size
+2.  Rate of increase in subproblem and rate of decrease in size are equally significant
+3. Rate of increase in subproblem is more significant then rate of decrease in size
+
+To analyze this ,
+
 We use master theorem to find time the time complexity of Divide and Conquer algos
 
 **General Recurrence relation**
@@ -23,6 +33,8 @@ $$
 $$
 T(n) = \begin{cases} O(n^d) & \ if \ d > \log_b a \\ O(n^d \log_bn) & \ if \  d = \log_b a \\ O(n^{\log_b a}) & \ if \  d <\log_b a \end{cases}
 $$
+
+**Proof**
 
 **Three Cases**
 

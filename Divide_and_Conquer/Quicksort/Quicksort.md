@@ -24,13 +24,11 @@ We know in divide and conquer we have to split the problem into subproblems. The
 
 5. Solve the right partition recursively
 
-
-
 ## Time analysis
 
- **Master theorem equation for Quicksort(Random Pivot)** 
+ **Master theorem Analysis for Quicksort(Random Pivot)** 
 
-This will be probabilistic. In the worst case each partition will divide always at least n/4 elements in one side .
+This will be probabilistic. In the expected worst case each partition will divide always at least n/4 elements in one side .
 
 Partition we compare with each element of array so complexity = O(n)
 
@@ -45,7 +43,13 @@ $$
 T(n) < 2T(3n/4) + O(n)
 $$
 
-Using Master theorem Complexity = O(n logn)
+Using Master theorem Complexity = O(n logn) (Expected worst case not absolute)
+
+In the absolute worst -case (very unlucky/ negligible probability of happening). Always divide into 1  and n-1.
+$$
+T(n) = T(n-1) + O(n)
+$$
+ Resulting in time-complexity = O(n^2).
 
 
 
@@ -65,6 +69,19 @@ using master theorem in worst case complexity = O(n^2)
 
 
 
-Considering the best c
+Considering the worst case k =n/2
+$$
+T(n) = 2T(n/2) + O(n)
+$$
+using master theorem in best case complexity = O(nlogn)
 
- 
+
+
+Considering the avg case k =n/9
+$$
+T(n) = T(n/9)+T(9n/10) + O(n)
+$$
+using master theorem in Average case complexity = O(nlogn)
+
+
+

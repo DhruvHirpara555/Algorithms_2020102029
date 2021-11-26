@@ -79,7 +79,7 @@ $$
 \begin{align}
 X[k] &= G_1[k] + w_n^kG_2[k] \\
 and\\
-X[k+N/2] &= G_1[k+N/2] + w_n^{k+N/2}G_2[k+N/2] = G_1[k] - w_n^kG_2[k] (\text{cyclic})
+X[k+N/2] &= G_1[k+N/2] + w_n^{k+N/2}G_2[k+N/2] = G_1[k] - w_n^kG_2[k] (\text{cyclic shift})
 \end{align}
 $$
 For k = 0,1,2, ...., N/2-1
