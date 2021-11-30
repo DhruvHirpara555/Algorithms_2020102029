@@ -65,6 +65,12 @@ Each filling takes constant time.
 
 Final time complexity = O(n^2).
 
+## Space Complexity Analysis
+
+It takes table of order of n^2. That we need.
+
+Final space complexity = O(n^2)
+
 ## Example RUN
 
 **Step1**

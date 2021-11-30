@@ -1,49 +1,7 @@
 #include <iostream>
 #include <vector>
+#include"DSU.hpp"
 
- class DisjointSU
- {
- private:
-     int parent[1000007], size[1000007];
- public:
-     void makeSet(int a);
-     int king(int a);
-     void unionbysize(int a, int b);
-
- };
-
-
-
-
-
-void DisjointSU::makeSet(int a)
-{
-    parent[a] = a;
-    size[a] = 1;
-}
-int DisjointSU::king(int a)
-{
-    if (a == parent[a])
-        return a;
-    return parent[a] = king(parent[a]);
-}
-void DisjointSU::unionbysize(int a, int b)
-{
-    a = king(a);
-    b = king(b);
-    if (a == b)
-        return;
-    if (size[a] < size[b])
-    {
-        parent[a] = b;
-        size[b] += size[a];
-    }
-    else
-    {
-        parent[b] = a;
-        size[a] += size[b];
-    }
-};
 
 
 
@@ -64,7 +22,7 @@ void swap(Edge *x, Edge *y)
     *y = temp;
 }
 
-void printMST(std::vector<Edge> T)
+void printMST(std::vector<Edge> T) //print the mst
 {
     int i;
     long long int cost = 0;
@@ -77,6 +35,7 @@ void printMST(std::vector<Edge> T)
     printf("%lld", cost);
 }
 
+//partition funtion to help quicksort
 int Partition(Edge E[],int low, int high)
 {
     int pivot = E[high].w;
@@ -92,7 +51,7 @@ int Partition(Edge E[],int low, int high)
     swap(&E[i], &E[high]);
     return i;
 }
-
+// quicksort to sort the edges
 void QuickSort(Edge E[],int low, int high)
 {
     if (low < high)
@@ -109,20 +68,20 @@ void Kruskal(Edge *E, int n, int e)
     int  u, v;
 
     std::vector<Edge> MST;
-    QuickSort(E, 0, e - 1);
+    QuickSort(E, 0, e - 1); //sort edges in ascending order according to their weights
 
-    int j = 0;
+
     for (int i = 0; i < e; i++)
     {
 
-        u = dsu.king(E[i].u);
-        v = dsu.king(E[i].v);
-        if (u != v)
+        u = dsu.king(E[i].u); //find the king of the u
+        v = dsu.king(E[i].v); //find the king of the v
+        if (u != v) // checking if the two vertices are not in same ser
         {
 
-            MST.push_back({E[i].u, E[i].v, E[i].w});
-            j++;
-            dsu.unionbysize(u, v);
+            MST.push_back({E[i].u, E[i].v, E[i].w}); //add the edge to the mst
+
+            dsu.unionbysize(u, v); //union the two set
         }
 
     }
@@ -142,7 +101,7 @@ int main()
     std :: cin >> n >> e;
 
     E = (Edge *)malloc(e * sizeof(Edge));
-
+    // making singleton sets for each vertex
     for (int i = 1; i <= n ; i++)
     {
         dsu.makeSet(i);

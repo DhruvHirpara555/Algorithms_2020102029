@@ -12,7 +12,7 @@ void floyd_w(int **graph, int n)
 {
     int dp[n][n];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) // getting D0
     {
         for (int j = 0; j < n; j++)
         {
@@ -20,7 +20,7 @@ void floyd_w(int **graph, int n)
         }
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) // getting Dk by D(k-1)
     {
         for (int j = 0; j < n; j++)
         {

@@ -27,13 +27,16 @@ public:
     int helper(int arr[], int low, int high);
 };
 
+// this will partition the array into two parts such that all elements less than the pivot are to the left of the pivot and all elements greater than the pivot are to the right of the pivot.
+
 
 
 int quick_sort::helper(int arr[], int low, int high){
-    int pivot = arr[high];
-    int i = low;
+    int pivot = arr[high]; // pivot
+    int i = low; // Index of smaller element
     for (int j = low; j <= high - 1; j++)
     {
+        // If current element is smaller than pivot wap current element with index i and do i++
         if (arr[j] < pivot)
         {
 
@@ -47,10 +50,10 @@ int quick_sort::helper(int arr[], int low, int high){
 int quick_sort::Rand_partition(int arr[],int low, int high){
 
     srand(time(NULL));
-    int rand_pivot = low + rand() % (high - low);
-    swap(&arr[rand_pivot], &arr[high]);
+    int rand_pivot = low + rand() % (high - low); //random pivot
+    swap(&arr[rand_pivot], &arr[high]); //  swap pivot with last element
 
-    return helper(arr, low, high);
+    return helper(arr, low, high); // return the index of the pivot by calling helper function
 
 }
 
@@ -61,14 +64,14 @@ int* quick_sort::quicksort(int arr[],int low, int high, int flag_random)
         int pi;
         if (flag_random == 1)
         {
-            pi = Rand_partition(arr, low, high);
+            pi = Rand_partition(arr, low, high); // random pivot
         }
         else
         {
-            pi = helper(arr, low, high);
+            pi = helper(arr, low, high); //last element as pivot
         }
-        quicksort(arr, low, pi - 1, flag_random);
-        quicksort(arr, pi + 1, high, flag_random);
+        quicksort(arr, low, pi - 1, flag_random); // sort left subarray
+        quicksort(arr, pi + 1, high, flag_random); // sort right subarray
     }
 
     return arr;

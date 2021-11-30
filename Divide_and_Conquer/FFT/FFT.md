@@ -6,7 +6,6 @@ FFT is a mathematical algorithm that computes the discrete Fourier transform (DF
 
 The discrete Fourier transform transforms a sequence of N complex numbers ${ \left\{\mathbf {x_{n}} \right\}:=x_{0},x_{1},\ldots ,x_{N-1}}{ \left\{\mathbf {x_{n}} \right\}:=x_{0},x_{1},\ldots ,x_{N-1}}$ into another sequence of complex numbers, ${ \left\{\mathbf {X_{k}} \right\}:=X_{0},X_{1},\ldots ,X_{N-1},}{ \left\{\mathbf {X_{k}} \right\}:=X_{0},X_{1},\ldots ,X_{N-1},}$ which is defined by the following relation:
 
-
 $$
 {{
 \begin{aligned}
@@ -98,8 +97,6 @@ DFT of the sequence $\{x_2\} = x[0],x[1]$ will be $\{X_2\} = x[0] + x[1],x[0]-x[
 
 ![](/home/dhruv/Algorithms_2020102029/Divide_and_Conquer/FFT/Screenshot 2021-11-04 184109.png)
 
-
-
 ## Time Analysis
 
 We can see from the equation in step 3 that merging requires
@@ -134,5 +131,11 @@ $$
 Hence the final time complexity will be
 
 $$
-T(n) = N\log(N)O(Addition) + N/2\log(N)O(Multiplication)
+T(n) = N\log(N)O(Complex \ Addition) + N/2\log(N)O( complex \ Multiplication)
 $$
+
+## Space Complexity
+
+Every time in the recursuion we call FFT we generate 3 arrays of size N. No. of recursive calls = logn
+
+Final space complexity = O(3nlogn) = O(nlogn)

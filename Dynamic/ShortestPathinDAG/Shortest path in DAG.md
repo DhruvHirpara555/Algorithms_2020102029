@@ -57,3 +57,7 @@ Here time complexity is clearly visible from the code as
 
  final time complexity = O(V+E)
 
+# Space Complexity
+
+We here need to feel only 1-D table so
+Final space complexity = O(V)

@@ -4,7 +4,7 @@
 #define INF 1000007
 using namespace std;
 
-void DFS(int **Graph, int N, int *visited, int &time, int* dep_time, int v)
+void DFS(int **Graph, int N, int *visited, int &time, int* dep_time, int v) // sorting the vertices in topological order
 {
     visited[v] = 1;
 
@@ -18,7 +18,7 @@ void DFS(int **Graph, int N, int *visited, int &time, int* dep_time, int v)
     }
 
 
-    dep_time[time] = v;
+    dep_time[time] = v; // storing the vertices in  reverse topological order
     time++;
 }
 
@@ -28,11 +28,11 @@ void ShorthesPathInDAG(int** Graph, int source, int n)
     int dep_time[n];
     int visited[n];
     int parent[n];
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) //initializing required arrays,
     {
-        dep_time[i] = 0;
-        visited[i] = 0;
-        parent[i] = i;
+        dep_time[i] = 0; // for sorting the vertices in topological order
+        visited[i] = 0; // for sorting the vertices in topological order
+        parent[i] = i; // for finding the shortest path
     }
     int t =0;
 
@@ -52,19 +52,20 @@ void ShorthesPathInDAG(int** Graph, int source, int n)
 
     cost[source] = 0;
 
-    for (int i = n-1; i >=0; i--)
+    for (int i = n-1; i >=0; i--) //iterating in linearized order
     {
         int u = dep_time[i];
         for(int j=0; j<n; j++)
         {
-            if((cost[u] != INF) &&  (cost[u] + Graph[u][j] < cost[j]))
+            if((cost[u] != INF) &&  (cost[u] + Graph[u][j] < cost[j])) // if the cost of the path from u to j is less than the current cost of j
             {
-                cost[j] = cost[u] + Graph[u][j];
-                parent[j] = u;
+                cost[j] = cost[u] + Graph[u][j]; // // updating the cost of the path from u to j
+                parent[j] = u; // storing the parent of j
             }
         }
     }
 
+    // printing the shortest path using backtracking(parent array)
     for (int i = 0; i < n; i++)
     {
         cout<<"Shortest path from "<<source<<" to "<<i<<" is "<<cost[i]<<" and the path is ";

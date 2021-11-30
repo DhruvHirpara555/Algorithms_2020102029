@@ -53,3 +53,9 @@ $$
 Since we are filling $n^3$ elements and each filling takes O(1).
 
 Final complexity = $O(n^3)$ 
+
+## Space complexity
+
+From the disscussion we conclude that we only need to keep track of 1 2-d table so the 
+
+Final space Complexity = $O(n^2)$

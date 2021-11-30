@@ -85,3 +85,8 @@ using master theorem in Average case complexity = O(nlogn)
 
 
 
+## Space complexity Analysis
+
+Since we are only partitioning in the existing array by using swap elements. We only need 1-D array of length n to store  the input array.
+
+Space complexity = O(n)

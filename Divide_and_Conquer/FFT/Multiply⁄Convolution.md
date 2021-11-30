@@ -69,3 +69,10 @@ We did 3 FFT/IFFT operations
 
 So final time complexity = O(nlogn) + O(nlogn) + O(nlogn) + O(n) = O(nlogn)
 
+## Space complexity
+
+FFT/IFFT takes oreder of nlogn space
+
+We did 3 FFT/IFF.
+
+Final space complexity = O(nlog)

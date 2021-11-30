@@ -15,8 +15,8 @@ int LCS(string s1, string s2, string &common)
     int n = s2.length();
 
 
-    int dp[m+1][n+1];
-    for(int i=0;i<=m;i++){
+    int dp[m+1][n+1]; // dp[i][j] = length of LCS of s1[0..i-1] and s2[0..j-1]
+    for(int i=0;i<=m;i++){ // initialize the first row and column with 0
         dp[i][0]=0;
     }
     for(int i=0;i<=n;i++){
@@ -24,7 +24,7 @@ int LCS(string s1, string s2, string &common)
     }
     for (int i = 1; i <= m; i++)
     {
-        for (int j =1 ; j <= n ; j++)
+        for (int j =1 ; j <= n ; j++) // compute the value of dp[i][j] using the already filled values(element above/element in left/ diagonal)
         {
             if(s1[i-1]==s2[j-1]){
                 dp[i][j]=dp[i-1][j-1]+1;
@@ -35,6 +35,7 @@ int LCS(string s1, string s2, string &common)
         }
 
     }
+    //using backtracking to find the common string
 
     int i=m,j=n;
 
