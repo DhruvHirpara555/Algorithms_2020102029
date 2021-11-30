@@ -142,3 +142,11 @@ Now we can do same thing as in the last case and try to generate wtiness using t
 
 Hence the no. of witnesses must be larger then no. of non- witnesses.
 
+## Time Complexity
+
+* Calculating $a^{s.2^i}$ using the repeated squaring method will take  Order of (logn)^2
+* Multiplying and taking maodulo will take order of logn times
+* This whole test is done k times so 
+
+FInal time complexity = O(klog^3n).
+
